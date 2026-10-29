@@ -7,7 +7,7 @@
 
 这个 jar 自称 `Hachimi 2.0`，作者署名 `haodzzzzzzz`，官网指向 `hachimiclient.pw`。但它**不是**官方 Hachimi 的构建产物，而是一个 UI 与功能都拙劣模仿的第三方仿冒版本。
 
-社区反馈（B 站视频评论区，@yumu-w9I，1 个月前）：
+社区反馈（ytb视频评论区，@yumu-w9I，1 个月前）：
 
 > The real 2.0 UI doesn't look like this, this is obviously a clumsy copy of Coastline, and it doesn't have so few features.
 >
