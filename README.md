@@ -43,7 +43,7 @@ ClickGUI 那套结构与配色（`impl/gui/click/` 下的 `CategoryFrame` / `Mod
 
 ### 3. 功能规模对不上
 
-官方 2.0 的功能列表远多于这个包；这个包虽然也有 170 个模块文件、145 个 Mixin，但缺了官方大量核心模块，属于「形似而神不似」。
+这个包有 170 个模块文件、145 个 Mixin，看着不少，但缺了官方大量核心模块（含整个 `Scripts` / `UI` / `Settings` 框架层），同时凭空多出 39 个官方从未存在的模块。**逐模块对照见下节**。
 
 ### 4. 贴图资源被剥离
 
@@ -61,6 +61,61 @@ ClickGUI 那套结构与配色（`impl/gui/click/` 下的 `CategoryFrame` / `Mod
 | 署名 | haodzzzzzzz | 同样冒用 haodzzzzzzz |
 
 **冒用原作者署名**是最恶劣的一点：这个包让使用者以为自己在用 haodzzzzzzz 的作品。
+
+## 功能对照：正版 vs 本仿冒包
+
+下面是与官方 Hachimi 2.0 逐模块的差异清单。可以清楚看到这不是「官方旧版本」，而是**一套自己乱拼的模块集**——既凭空加了一堆正版没有的东西，又缺了官方大量核心模块。
+
+### 一、仿冒包多出、正版没有的功能（39 个）
+
+| 分类 | 模块 |
+|---|---|
+| **Combat 战斗** | `AutoCrawlTrap` `BasePlace` `KeyPearl` `SpearKill` `SelfFill` |
+| **Miscellaneous 杂项** | `AntiAim` `AutoFrameDupe` `ChestSwap` `MiddleClick` `Shulkerception` |
+| **Exploits 利用** | `Backtrack` `ChorusInvincibility` `InventorySync` `NewChunks` `NoMineAnimation` ⚠️ |
+| **Render 渲染** | `Crosshair` `MotionCamera` `NoBob` `NoWeather` `ViewClip` |
+| **Movement 移动** | `FakeLag` `FireworkBoost` `IceSpeed` `Jesus` `Step` `TickShift` `TridentFly` `Velocity` `Yaw` |
+| **Player 玩家** | `AutoFish` `FastEat` `NoGlitch` ⚠️ |
+| **Client 客户端** | `Search`（ClickGUI 顶部搜索框）`Chat` `ClickGui` `Colors` `CombatHud` `RPC` `Rotations` |
+
+> ⚠️ `NoMineAnimation`、`NoGlitch`、`AutoArmor` 这三个同时出现在下一张「正版有」的表里，原始对照资料在两处都列了它们（详见文末「对照资料勘误」）。
+
+### 二、仿冒包缺少、正版有的功能（48 个）
+
+| 分类 | 模块 |
+|---|---|
+| **Combat 战斗** | `AntiPhase` `ArmorAlert` `CrawTrap` `Flatten` `PearlBlocker` `Penetrate` `ShieldBreaker` `SpearAura` |
+| **Misc 杂项** | `AdaptiveFPS` `AutoEZ` `PotionTracker` `SpinBot` |
+| **Exploit 利用** | `AntiKick` `Blink` `DurableElytra` `FakeVanilla` `HandlerRevision` `NoGlitch` `NoMineAnimation` `ScreenKeeper` `SpearFix` `TridentTweaks` |
+| **Render 渲染** | `AntiAliasing` `AspectRatio` `BetterHotbar` `Glint` `PhantomView` `PopChams` `TargetESP` |
+| **Movement 移动** | `Avoid` `Freeze` `Packet` `AutoJump` `AutoFly` `Fireworks` `ElytraRoam` `RocketBoost` |
+| **Player 玩家** | `AccuratePotion` `AutoArmor` `GhostHand` `NoInteract` `NoSlotSet` `PacketEat` `Reach` `TweakMacro` |
+| **Client 客户端** | `Scripts` `Settings` `UI` |
+
+`Scripts`（脚本系统）、`Settings`、`UI` 这三个缺得最关键——它们是官方 2.0 客户端框架级的组成部分，不是可有可无的小模块。仿冒包连框架都没对齐，自然只能做出「形似」的皮。
+
+### 三、为什么这份对照能定性
+
+一个正常的版本迭代只会**增减几个模块**。这里是：
+
+- 多出 39 个正版**从未存在**的模块（如 `SpearKill` `Shulkerception` `AutoFrameDupe`）
+- 缺少 48 个官方**核心**模块（含 `Scripts` / `UI` / `Settings` 整个框架层）
+- 总数差异达 87 项，且增删方向毫无版本演进规律
+
+这不是「旧版本」或「定制版」能做到的差异幅度，只能是**从别处（Coastline 等）拼凑后重新套了个 Hachimi 的名字**。
+
+## 对照资料勘误
+
+原始对照资料（`对照.txt`）中有 4 处与源码实际不符，已按源码核实并修正：
+
+| 原文 | 实际情况 | 说明 |
+|---|---|---|
+| Misc: `AutoAim` | 源码为 **`AntiAim`** | `AntiAimModule` 注册名为 `"AntiAim"`，`MISCELLANEOUS` 分类；全工程无 `AutoAim` |
+| Exploit: `NoLineAnimation` | 源码为 **`NoMineAnimation`** | 全工程无 `NoLineAnimation`；`NoMineAnimationModule` 注册名 `"NoMineAnimation"`、`EXPLOITS` 分类 |
+| Player: `NoClitch` | 源码为 **`NoGlitch`** | `NoClitch` 系 `NoGlitch` 的拼写错误；`NoGlitchModule` 注册名 `"NoGlitch"`、`PLAYER` 分类 |
+| Player: `AutoArmor`（列为「盗版没有」） | 源码**存在** `AutoArmor` | `AutoArmorModule` 注册名 `"AutoArmor"`，203 行，但归在 **`COMBAT` 分类**而非 Player。差异是分类归属，不是缺失 |
+
+另有 1 处分类归属需注意：`Search` 在源码里是 **Render 类**模块（`SearchModule`，方块高亮），而对照资料列的「Client 客户端 → Search...（顶部搜索框）」实际指的是 ClickGUI 的搜索框组件 `SearchButton`，不是模块。二者不是同一个东西。
 
 ## 源码是怎么来的
 
