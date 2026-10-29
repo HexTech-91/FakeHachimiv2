@@ -1,0 +1,46 @@
+{
+  "gui_click": {
+    "sounds": [
+      {
+        "name": "hachimi:gui_click",
+        "stream": false
+      }
+    ]
+  },
+
+  "twitter": {
+    "sounds": [
+      {
+        "name": "hachimi:twitter",
+        "stream": false
+      }
+    ]
+  },
+
+  "ios": {
+    "sounds": [
+      {
+        "name": "hachimi:ios",
+        "stream": false
+      }
+    ]
+  },
+
+  "discord": {
+    "sounds": [
+      {
+        "name": "hachimi:discord",
+        "stream": false
+      }
+    ]
+  },
+
+  "steam": {
+    "sounds": [
+      {
+        "name": "hachimi:steam",
+        "stream": false
+      }
+    ]
+  }
+}

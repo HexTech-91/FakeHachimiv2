@@ -1,0 +1,23 @@
+package net.hachimi.client.impl.event.network;
+
+import com.mojang.authlib.GameProfile;
+import net.hachimi.client.impl.manager.client.cape.CapeManager;
+import net.hachimi.eventbus.event.Event;
+
+public class LoadCapeEvent extends Event {
+   private final GameProfile profile;
+   private final CapeManager.CapeTexture texture;
+
+   public LoadCapeEvent(GameProfile profile, CapeManager.CapeTexture texture) {
+      this.profile = profile;
+      this.texture = texture;
+   }
+
+   public CapeManager.CapeTexture getTexture() {
+      return this.texture;
+   }
+
+   public GameProfile getGameProfile() {
+      return this.profile;
+   }
+}

@@ -1,0 +1,15 @@
+package net.hachimi.client.impl.event.render;
+
+import net.hachimi.eventbus.event.Event;
+
+public class LightmapUpdateEvent extends Event {
+   private final float tickDelta;
+
+   public LightmapUpdateEvent(float tickDelta) {
+      this.tickDelta = tickDelta;
+   }
+
+   public float getTickDelta() {
+      return this.tickDelta;
+   }
+}

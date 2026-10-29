@@ -1,0 +1,14 @@
+package net.hachimi.client.api.account.msa.exception;
+
+public final class MSAAuthException extends Exception {
+   private final String message;
+
+   public MSAAuthException(String message) {
+      this.message = message;
+   }
+
+   @Override
+   public String getMessage() {
+      return this.message;
+   }
+}
